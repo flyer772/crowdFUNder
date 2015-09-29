@@ -1,16 +1,20 @@
+
+
+UPDATE PASSWORD TO DIGEST
+
 Models
 
-Project 
+Project
 - title
 - description
-- goal 
+- goal
 - start_date
 - end_date
 - image
 - owner_id
 
 
-User 
+User
 - first_name
 - last_name
 - email_address
@@ -26,7 +30,7 @@ Reward
 Pledge
 - amount
 - user_id
-- reward_id 
+- reward_id
 
 validates :amount *
 
@@ -43,7 +47,7 @@ accept_nested_attributes: :rewards
 User
 has_many :pledges
 has_many :backed_projects, through: :pledges
-has_many :owned_projects 
+has_many :owned_projects
 has_many :rewards, through: :pledges
 
 Reward
