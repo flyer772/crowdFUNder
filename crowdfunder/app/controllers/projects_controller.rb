@@ -5,6 +5,13 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    @project = Project.new(project_params)
+    # @project.owner_id = current_user.id
+    if @project.save
+      redirect_to projects_path
+      else
+        render.new
+    end
   end
 
   def index
@@ -24,8 +31,7 @@ class ProjectsController < ApplicationController
 
 private
 
-def project_params
-  params.require(:project).permit(:title, :description, :goal, :start_date, :end_date, rewards_attributes:[:name, :description, :amount_required])
-
-end
+  def project_params
+    params.require(:project).permit(:title, :description, :goal, :start_date, :end_date, rewards_attributes:[:name, :description, :amount_required])
+  end
 end
