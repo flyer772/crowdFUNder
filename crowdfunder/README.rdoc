@@ -7,6 +7,8 @@ Project
 - start_date
 - end_date
 - image
+- owner_id
+
 
 User 
 - first_name
@@ -14,9 +16,44 @@ User
 - email_address
 - password
 
-Rewards
+Reward
 - name
 - description
+- amount_required
+- project_id
 
 
 Pledge
+- amount
+- user_id
+- reward_id 
+
+validates :amount *
+
+
+ASSOCIATIONS
+Project
+has_many :rewards
+belongs_to :owner
+has_many :pledges, through: :rewards
+has_many :users, through: :pledges
+
+accept_nested_attributes: :rewards
+
+User
+has_many :pledges
+has_many :backed_projects, through: :pledges
+has_many :owned_projects 
+has_many :rewards, through: :pledges
+
+Reward
+belongs_to :project
+has_many :users, through: :pledges
+has_many :pledges
+
+
+Pledge
+belongs_to :user
+belongs_to :reward
+has_one :project, through: :reward
+
