@@ -1,3 +1,20 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
-<p>test</p>
+<h1><%= @project.title %> </h1>
+
+description: <%= @project.description %> <br>
+goal: <%= @project.goal %> <br>
+start_date: <%= @project.start_date %> <br>
+end_date: <%= @project.end_date %> <br>
+
+<h2>Reward(s)</h2>
+<% @project.rewards.each do |reward| %>
+name: <%= reward.name %> <br>
+description: <%= reward.description %> <br>
+amount: <%= reward.amount_required %> <br> <br>
+<% end %>
+
+
+
+
+<%= link_to "back to project", projects_path %>
+
+
