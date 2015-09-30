@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_filter :require_login, only: [:new, :create]
   def new
     @project = Project.new
     @reward = @project.rewards.build
