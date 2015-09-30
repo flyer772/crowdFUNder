@@ -7,9 +7,12 @@ end_date: <%= @project.end_date %> <br>
 
 <h2>Reward(s)</h2>
 <% @project.rewards.each do |reward| %>
-name: <%= reward.name %> <br>
-description: <%= reward.description %> <br>
-amount: <%= reward.amount_required %> <br> <br>
+  <button class="reward">
+    name: <%= reward.name %> <br>
+    description: <%= reward.description %> <br>
+    amount: <%= reward.amount_required %>
+  </button>
+  <br> <br>
 <% end %>
 
 
