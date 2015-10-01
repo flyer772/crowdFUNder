@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930194652) do
+ActiveRecord::Schema.define(version: 20151001161026) do
 
   create_table "pledges", force: :cascade do |t|
     t.integer  "amount"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20150930194652) do
     t.string   "salt"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.boolean  "admin"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
