@@ -17,12 +17,17 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    authorize! :index, @project
+    #  authorize! :index, @project
   end
 
   def show
     @project = Project.find(params[:id])
-    authorize! :show, @project
+    # authorize! :show, @project
+
+
+
+
+
   end
 
   def destroy

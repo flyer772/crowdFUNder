@@ -1,0 +1,14 @@
+<% @project.rewards.each do |reward| %>
+  <%= form_for Pledge.new do |f| %>
+   <button class="reward">
+    <span class="info">name: <%= reward.name %> <br>
+    description: <%= reward.description %> <br>
+    amount: <%= reward.amount_required %></span>
+    <span class="pledge">
+      Pledge now.
+    </span>
+  </button>
+  <%= f.hidden_field :reward_id, value: reward.id %>
+  <% end %>
+  <br> <br>
+<% end %>

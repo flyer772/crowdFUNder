@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'pledges/create'
+
   root :to => 'projects#index'
 
   resources :users, only: [:new, :create]

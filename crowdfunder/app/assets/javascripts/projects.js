@@ -13,5 +13,20 @@ $(".reward").on("mouseleave", function(){
     $(".info", this).show();
     $(".pledge", this).hide();
   });
+
+$('.reward').on('click', function(e){
+  e.preventDefault();
+
+  var form = $(this).parent();
+  var url = form.attr('action');
+
+  $.post(url, form.serialize()).done(function(data){
+  console.log(data);
+
+  });
+
 });
+});
+
+
 

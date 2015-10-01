@@ -2,26 +2,15 @@
 
 Description: <%= @project.description %> <br>
 Goal: $<%= @project.goal %> <br>
-Amount remaining: $<%= @project.goal - @project.pledges.sum(:amount) %><br>
+<%= render 'remaining' %>
 Start_date: <%= @project.start_date.to_date %> <br>
 End_date: <%= @project.end_date.to_date %> <br><br>
-Days remaining: <%= ((@project.end_date.to_i - @project.start_date.to_i)/86400)  %>
+
+ Days remaining: <%= time_remaining %>
 
 <h2>Reward(s)</h2>
-<% @project.rewards.each do |reward| %>
-  <%= form_for Pledge.new do |f| %>
-   <button class="reward">
-    <span class="info">name: <%= reward.name %> <br>
-    description: <%= reward.description %> <br>
-    amount: <%= reward.amount_required %></span>
-    <span class="pledge">
-      Pledge now.
-    </span>
-  </button>
-  <% end %>
-  <br> <br>
-<% end %>
 
+<%= render "rewards" %>
 
 
 <%= link_to "back to project", projects_path %>
