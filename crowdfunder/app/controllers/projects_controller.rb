@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    authorize! :show, @project 
+    authorize! :show, @project
   end
 
   def destroy
