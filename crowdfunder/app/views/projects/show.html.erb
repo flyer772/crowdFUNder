@@ -1,9 +1,10 @@
 <h1><%= @project.title %> </h1>
 
-description: <%= @project.description %> <br>
-goal: <%= @project.goal %> <br>
-start_date: <%= @project.start_date %> <br>
-end_date: <%= @project.end_date %> <br>
+Description: <%= @project.description %> <br>
+Goal: <%= @project.goal %> <br>
+Start_date: <%= @project.start_date %> <br>
+End_date: <%= @project.end_date %> <br><br>
+Days remaining: <%= ((@project.end_date.to_i - @project.start_date.to_i)/86400)  %>
 
 <h2>Reward(s)</h2>
 <% @project.rewards.each do |reward| %>
