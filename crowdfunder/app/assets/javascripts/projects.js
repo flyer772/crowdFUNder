@@ -20,10 +20,7 @@ $('.reward').on('click', function(e){
   var form = $(this).parent();
   var url = form.attr('action');
 
-  $.post(url, form.serialize()).done(function(data){
-  console.log(data);
-
-  });
+  $.post(url, form.serialize());
 
 });
 });

@@ -2,9 +2,11 @@ class PledgesController < ApplicationController
   def create
     @pledge = Pledge.new(pledge_params)
     @pledge.user_id = current_user.id
+    @pledge.save
+    @project = @pledge.project
 
-    if @pledge.save
-    render 'projects/_remaining'
+    respond_to do |format|
+      format.js
     end
   end
 
